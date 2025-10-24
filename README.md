@@ -22,44 +22,6 @@ colcon build #編譯
 source install/setup.bash #載入
 ```
 
-## 新增程式
-若有新增python 節點需要改動setup.py中的entry_points
-```python
-from setuptools import find_packages, setup
-
-package_name = 'edcra'
-
-setup(
-    name=package_name,
-    version='0.0.0',
-    packages=find_packages(exclude=['test']),
-    data_files=[
-        ('share/ament_index/resource_index/packages',
-            ['resource/' + package_name]),
-        ('share/' + package_name, ['package.xml']),
-    ],
-    install_requires=['setuptools'],
-    zip_safe=True,
-    maintainer='abc',
-    maintainer_email='abc@todo.todo',
-    description='TODO: Package description',
-    license='TODO: License declaration',
-    tests_require=['pytest'],
-    entry_points={
-        'console_scripts': [ # 新增在這邊 '<要用的程式代號>=<資料夾名稱>.<檔案>:main'
-        	'sensor=edcra.test_sensor:main',
-        	'image=edcra.test_image:main',
-        	'ui=edcra.ui_window:main',
-        ],
-    },
-)
-```
-
-
-
-
-
-
 ## 測試  
 1. 先開啟終端機和手臂連線
 ```
@@ -71,6 +33,6 @@ ros2 run tm_driver tm_driver robot_ip:=192.168.10.3
 source install/setup.bash
 ros2 run demo <demo/src資料夾中的程式>
 ```
-
+3. 手臂回傳OK即可
 
 
