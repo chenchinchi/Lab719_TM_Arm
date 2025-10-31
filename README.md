@@ -63,6 +63,11 @@ ros2 run project try_node
 # 或一般形式：
 ros2 run <pkg_name> <entry_name>
 ```
+若要使用TMrobot/TMRobot
+```python
+from project.TMrobot import TMRobot
+robot = TMRobot()
+```
 
 ---
 
